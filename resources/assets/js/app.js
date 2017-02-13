@@ -13,8 +13,19 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+/*Vue.component('example', require('./components/Example.vue'));
 
 const app = new Vue({
     el: '#app'
+});*/
+$.ajaxSetup({
+    headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+});
+$(document).ready(function() {
+    $('li#parent-list-group a').click(function(event) {
+        $('li#parent-list-group ul#sub-list-group').slideUp();
+        $(this).parent().children('ul#sub-list-group').slideToggle();
+    });
 });
