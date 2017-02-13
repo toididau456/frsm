@@ -1,5 +1,4 @@
 <?php
-
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -29,6 +28,5 @@ class UsersTableSeeder extends Seeder
             'email' => 'hr@gmail.com',
             'position_id' => 3,
         ]);
-
     }
 }
