@@ -1,0 +1,73 @@
+div#wrapper {
+    div.container-fluid {
+        div.row {
+            margin-bottom: 15px;
+            div.col-md-3 {
+                ul.list-group {
+                    list-style: none;
+                    li#title {
+                        background: #F8694D;
+                        a {
+                            display: block;
+                            padding: 10px 15px;
+                            text-decoration: none;
+                            color: #FFFFFF;
+                            background-color: #F8694D;
+                            font-size: 17px;
+                        }
+                    }
+                    >li#parent-list-group {
+                        padding: 0;
+                        background: #F5F5F5;
+                        &:last-child {
+                            border-bottom: 1px solid #ddd;
+                        }
+                        span.badge {
+                            background: #B61D2D;
+                            margin-left: 25%;
+                        }
+                        a{
+                            border: 1px solid #ddd;
+                            border-bottom: 0;
+                            display: block;
+                            padding: 10px 15px;
+                            text-decoration: none;
+                        }
+                        >ul#sub-list-group {
+                            display: none;
+                            padding-left: 0;
+                            list-style: none;
+                            >li {
+                                background: white;
+                                a {
+                                    border: 1px solid #ddd;
+                                    padding: 10px 15px;
+                                    &:first-child, &:nth-child(2) {
+                                        border-bottom: 0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            div#content {
+                div#notification-info {
+                    border-radius: 5px;
+                    span#head-title {
+                        border-radius: 5px;
+                        padding: 10px;
+                        background: #B61D2D;
+                        display: block;
+                        color: white;
+                    }
+                    div#info {
+                        padding: 10px;
+                        border-radius: 5px;
+                    }
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+                }
+            }
+        }
+    }
+}
