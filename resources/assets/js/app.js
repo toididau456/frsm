@@ -1,6 +1,7 @@
 import FilterTable from "./common/filter-table"
 import Permission from "./user/permission"
 import SettingTable from "./setting/update"
+import Interview from "./schedule/interview"
 
 class App {
     constructor(window) {
@@ -11,7 +12,7 @@ class App {
     run() {
         this.setup();
         this.readySetup();
-
+        this.initTinymce();
         const filterTable = new FilterTable(this);
         filterTable.init();
 
@@ -20,6 +21,9 @@ class App {
 
         const settingTable = new SettingTable(this);
         settingTable.init();
+
+        const interview = new Interview(this);
+        interview.init();
     }
 
     setup() {
@@ -30,6 +34,18 @@ class App {
         });
     }
 
+    initTinymce() {
+        tinymce.init({
+            selector: '.textarea-tinymce',
+            height: 300,
+             setup: function (editor) {
+               editor.on('change', function () {
+                   editor.save();
+               });
+           },
+        });
+    }
+
     readySetup() {
         const $ = this.jQuery;
         $(() => {
@@ -37,6 +53,12 @@ class App {
                 $('li#parent-list-group ul#sub-list-group').slideUp();
                 $(this).parent().children('ul#sub-list-group').slideToggle();
             });
+
+            //Toogle Nav 
+            $('#header-toggle-nav').click(function() {
+                $('.sidebar').toggle();
+            });
+
         });
     }
 }

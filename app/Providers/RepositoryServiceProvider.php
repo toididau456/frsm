@@ -2,16 +2,20 @@
 
 namespace App\Providers;
 
+use App;
+use Illuminate\Support\ServiceProvider;
 use App\Repositories\Contracts\PositionRepositoryInterface;
-use App\Repositories\Contracts\SettingRepositoryInterface;
 use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Repositories\Eloquent\PositionRepository;
-use App\Repositories\Eloquent\SettingRepository;
 use App\Repositories\Eloquent\UserRepository;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\App;
 use App\Repositories\Contracts\PermissionRepositoryInterface;
 use App\Repositories\Eloquent\PermissionRepository;
+use App\Repositories\Eloquent\ScheduleRepository;
+use App\Repositories\Contracts\ScheduleRepositoryInterface;
+use App\Repositories\Eloquent\SettingRepository;
+use App\Repositories\Contracts\SettingRepositoryInterface;
+use App\Repositories\Eloquent\FieldRepository;
+use App\Repositories\Contracts\FieldRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -36,5 +40,7 @@ class RepositoryServiceProvider extends ServiceProvider
         App::bind(PositionRepositoryInterface::class, PositionRepository::class);
         App::bind(SettingRepositoryInterface::class, SettingRepository::class);
         App::bind(PermissionRepositoryInterface::class, PermissionRepository::class);
+        App::bind(ScheduleRepositoryInterface::class, ScheduleRepository::class);
+        App::bind(FieldRepositoryInterface::class, FieldRepository::class);
     }
 }

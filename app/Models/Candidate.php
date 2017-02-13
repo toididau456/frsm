@@ -17,8 +17,14 @@ class Candidate extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
+    
     public function schedules()
     {
         return $this->hasMany(Schedule::class);
+    }
+
+    public function getCvFileAttribute($value)
+    {
+        return config('setting.upload') . $value;
     }
 }

@@ -1,4 +1,4 @@
-<div class="col-md-3">
+<div class="col-md-3 sidebar">
     <ul class="list-group">
         <li id="title">
             <a href="#">

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ trans('messages.title') }}</title>
-
+    {!! Html::script('bower_components/tinymce/tinymce.min.js') !!}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
