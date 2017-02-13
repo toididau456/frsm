@@ -6,6 +6,8 @@
 /storage/*.key
 /vendor
 /.idea
+/public/fonts/
+/public/mix-manifest.json
 composer.lock
 Homestead.json
 Homestead.yaml
