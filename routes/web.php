@@ -14,6 +14,14 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('test', function () {
-    return view('pages.home');
+
+Auth::routes();
+
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/home', 'Web\HomeController@index');
+});
+
+Route::group(['middleware' => 'register'], function () {
+    Route::get('register', 'Auth\RegisterController@showRegistrationForm');
+    Route::post('register', 'Auth\RegisterController@register');
 });
