@@ -29,4 +29,5 @@ return [
     'action' => 'Action',
     'filter' => 'Filter',
     'list' => 'List',
+    'no_result' => 'No result',
 ];

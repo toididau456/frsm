@@ -23,5 +23,6 @@
 
     <!-- Scripts -->
     {!! Html::script(mix('js/app.js')) !!}
+
 </body>
 </html>
