@@ -22,5 +22,11 @@ return [
     'schedule' => 'Schedule|Schedules',
     'statistic' => 'Statistic',
     'setting' => 'System settings',
-    'user' => 'User|Users'
+    'user' => 'User|Users',
+    'edit' => 'Edit',
+    'id' => 'ID',
+    'position' => 'Position',
+    'action' => 'Action',
+    'filter' => 'Filter',
+    'list' => 'List',
 ];
