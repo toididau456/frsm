@@ -19,6 +19,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'Web\HomeController@index');
+    Route::resource('user', 'Web\UserController');
 });
 
 Route::group(['middleware' => 'register'], function () {

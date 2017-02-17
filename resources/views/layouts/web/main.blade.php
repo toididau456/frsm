@@ -25,6 +25,7 @@
           integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
           crossorigin="anonymous">
      {!! Html::style(mix('css/app.css')) !!}
+    @stack('css')
 </head>
 <body>
     <div id="app">
