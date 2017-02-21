@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers\Web;
 
-use App\Models\User;
-use App\Repositories\Eloquent\UserRepository;
+use App\Repositories\Contracts\UserRepositoryInterface as UserRepository;
+use App\Repositories\Criteria\User\EmailCriteria;
+use App\Repositories\Criteria\User\NameCriteria;
+use App\Repositories\Criteria\User\PositionCriteria;
+use App\Repositories\Contracts\PositionRepositoryInterface as PositionRepository;
+use App\Models\Contracts\PositionInterface as Position;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {
     private $userRepository;
+    private $positionRepository;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository, PositionRepository $positionRepository)
     {
         $this->userRepository = $userRepository;
+        $this->positionRepository = $positionRepository;
     }
 
     /**
@@ -24,8 +30,26 @@ class UserController extends Controller
     public function index()
     {
         $users = $this->userRepository->paginate();
+        $positions = $this->positionRepository->findAllBy('type', Position::TYPE_USER)->pluck('name', 'id');
 
-        return view('web.user.index', compact('users'));
+        return view('web.user.index', compact('users', 'positions'));
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function filter(Request $request)
+    {
+        $name = $request->name;
+        $email = $request->email;
+        $position = $request->position;
+        $this->userRepository->pushCriteria(new NameCriteria($name))
+            ->pushCriteria(new EmailCriteria($email))
+            ->pushCriteria(new PositionCriteria($position));
+        $users = $this->userRepository->paginate();
+
+        return view('web.user.filter', compact('users'));
     }
 
     /**
@@ -41,7 +65,7 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -52,7 +76,7 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -63,7 +87,7 @@ class UserController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -74,8 +98,8 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -86,7 +110,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
