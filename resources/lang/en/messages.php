@@ -30,4 +30,10 @@ return [
     'filter' => 'Filter',
     'list' => 'List',
     'no_result' => 'No result',
+    'authorize' => 'Authorize',
+    'others' => 'Others',
+    'permission_user' => 'User Permission',
+    'permission_candidate' => 'Candidate Permission',
+    'permission_other' => 'Other Permission',
+    'loading' => 'LOADING...',
 ];

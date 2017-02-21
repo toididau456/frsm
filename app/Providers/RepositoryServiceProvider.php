@@ -8,6 +8,8 @@ use App\Repositories\Eloquent\PositionRepository;
 use App\Repositories\Eloquent\UserRepository;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
+use App\Repositories\Contracts\PermissionRepositoryInterface;
+use App\Repositories\Eloquent\PermissionRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -30,5 +32,6 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         App::bind(UserRepositoryInterface::class, UserRepository::class);
         App::bind(PositionRepositoryInterface::class, PositionRepository::class);
+        App::bind(PermissionRepositoryInterface::class, PermissionRepository::class);
     }
 }
