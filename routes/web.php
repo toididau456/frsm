@@ -25,6 +25,12 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('update-permission/{id}', 'Web\UserController@updatePermission');
         Route::resource('/', 'Web\UserController');
     });
+    Route::resource('settings', 'Web\SettingController', [
+        'only' => [
+            'index',
+            'update',
+        ],
+    ]);
 });
 
 Route::group(['middleware' => 'register'], function () {

@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Repositories\Contracts\PositionRepositoryInterface;
+use App\Repositories\Contracts\SettingRepositoryInterface;
 use App\Repositories\Contracts\UserRepositoryInterface;
 use App\Repositories\Eloquent\PositionRepository;
+use App\Repositories\Eloquent\SettingRepository;
 use App\Repositories\Eloquent\UserRepository;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\App;
@@ -32,6 +34,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         App::bind(UserRepositoryInterface::class, UserRepository::class);
         App::bind(PositionRepositoryInterface::class, PositionRepository::class);
+        App::bind(SettingRepositoryInterface::class, SettingRepository::class);
         App::bind(PermissionRepositoryInterface::class, PermissionRepository::class);
     }
 }
