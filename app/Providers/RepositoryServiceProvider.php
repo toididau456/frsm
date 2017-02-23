@@ -16,6 +16,8 @@ use App\Repositories\Eloquent\SettingRepository;
 use App\Repositories\Contracts\SettingRepositoryInterface;
 use App\Repositories\Eloquent\FieldRepository;
 use App\Repositories\Contracts\FieldRepositoryInterface;
+use App\Repositories\Contracts\CandidateRepositoryInterface;
+use App\Repositories\Eloquent\CandidateRepository;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -42,5 +44,6 @@ class RepositoryServiceProvider extends ServiceProvider
         App::bind(PermissionRepositoryInterface::class, PermissionRepository::class);
         App::bind(ScheduleRepositoryInterface::class, ScheduleRepository::class);
         App::bind(FieldRepositoryInterface::class, FieldRepository::class);
+        App::bind(CandidateRepositoryInterface::class, CandidateRepository::class);
     }
 }

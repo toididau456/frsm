@@ -17,6 +17,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
+Route::get('statistic', 'Web\StatisticController@index');
+
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/home', 'Web\HomeController@index');
     Route::group(['prefix' => 'users'], function() {
