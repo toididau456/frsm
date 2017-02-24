@@ -12,9 +12,22 @@ class PositionsTableSeeder extends Seeder
     public function run()
     {
         DB::table('positions')->insert([
-            ['name' => 'Manager'],
-            ['name' => 'Trainner'],
-            ['name' => 'HR'],
+            [
+                'name' => 'Manager',
+                'type' => 'user',
+            ],
+            [
+                'name' => 'Trainer PHP',
+                'type' => 'user',
+            ],
+            [
+                'name' => 'HR',
+                'type' => 'user',
+            ],
+            [
+                'name' => 'trainer PHP',
+                'type' => 'candidate',
+            ],
         ]);
     }
 }

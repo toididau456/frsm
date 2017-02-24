@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Web;
 
 use App\Repositories\Contracts\UserRepositoryInterface as UserRepository;
+use App\Repositories\Contracts\PositionRepositoryInterface as PositionRepository;
+use App\Repositories\Contracts\PermissionRepositoryInterface as PermissionRepository;
+use App\Models\Contracts\PositionInterface as Position;
+use App\Models\Contracts\PermissionInterface as Permission;
 use App\Repositories\Criteria\User\EmailCriteria;
 use App\Repositories\Criteria\User\NameCriteria;
 use App\Repositories\Criteria\User\PositionCriteria;
-use App\Repositories\Contracts\PositionRepositoryInterface as PositionRepository;
-use App\Models\Contracts\PositionInterface as Position;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -15,11 +17,16 @@ class UserController extends Controller
 {
     private $userRepository;
     private $positionRepository;
+    private $permissionRepository;
 
-    public function __construct(UserRepository $userRepository, PositionRepository $positionRepository)
-    {
+    public function __construct(
+        UserRepository $userRepository,
+        PositionRepository $positionRepository,
+        PermissionRepository $permissionRepository
+    ) {
         $this->userRepository = $userRepository;
         $this->positionRepository = $positionRepository;
+        $this->permissionRepository = $permissionRepository;
     }
 
     /**
@@ -52,6 +59,23 @@ class UserController extends Controller
         return view('web.user.filter', compact('users'));
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function assignPermission($id)
+    {
+        $user = $this->userRepository->find($id);
+        $permissions = $this->permissionRepository->all();
+        $permissionGroups = Permission::GROUPS;
+
+        return view('web.user.assign_permission', compact('user', 'permissions', 'permissionGroups'));
+    }
+
+    public function updatePermission($id)
+    {
+        //
+    }
     /**
      * Show the form for creating a new resource.
      *
