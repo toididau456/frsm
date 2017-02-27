@@ -5,6 +5,8 @@
 /public/css/
 /public/js/
 /public/images/
+/public/upload/
+/public/bower_components
 /storage/*.key
 /vendor
 /.idea

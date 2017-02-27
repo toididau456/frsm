@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repositories\Criteria;
 
 use App\Repositories\Contracts\RepositoryInterface as Repository;

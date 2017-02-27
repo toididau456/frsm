@@ -2,7 +2,10 @@ div#wrapper {
     div.container-fluid {
         div.row {
             margin-bottom: 15px;
-            div.col-md-3 {
+            .sidebar {
+                position: absolute;
+                margin-top: 0;
+                z-index : 1;
                 ul.list-group {
                     list-style: none;
                     li#title {

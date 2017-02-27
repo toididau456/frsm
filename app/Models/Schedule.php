@@ -45,4 +45,5 @@ class Schedule extends Model
     {
         return $this->belongsToMany(Field::class)->withPivot('score')->withTimestamps();
     }
+
 }

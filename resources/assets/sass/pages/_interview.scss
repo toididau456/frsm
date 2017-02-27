@@ -1,0 +1,73 @@
+
+#interview-content {
+    background: #F4F4F4;
+    .content-left {
+        #candidate {
+            #info-cadidate {
+                margin-top: 15px;
+                background: #FFFFFF;
+                span {
+                    font-size: 18px;
+                    padding: 10px 5px;
+                    display: block;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                    font-weight: bold;
+                }
+                td {
+                    border: none;
+                    .modal-dialog {
+                        width: 100%;
+                        iframe {
+                            width: 100%;
+                            height:500px;
+                        }
+                    }
+                }
+            }
+            .interview-evaluate-candidate {
+                background: #FFFFFF;
+                padding: 6px;
+                .score-candidate {
+                    .score-candidate-title {
+                        th {
+                            border-bottom: 1px solid #ddd!important;
+                        }
+                     }
+                }
+            }
+        }
+    }
+    .content-right {
+        padding-top: 15px;
+        .interview-note {
+            background: #FFFFFF;
+            .title-note {
+                    display: block;
+                    padding: 8px 0;
+                    margin-bottom: 15px;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+                a{
+                    margin-left: 40px;
+                }
+            }
+            #edit-note {
+                display: none;
+                #save-note {
+                    margin-top: 15px;
+                }
+            }
+            margin-bottom: 20px;
+            padding: 10px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+            ul {
+                list-style: none;
+            }
+        }
+        #chat {
+            background: #FFFFFF;
+            height: 200px;
+            padding: 10px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+        }
+    }
+}
