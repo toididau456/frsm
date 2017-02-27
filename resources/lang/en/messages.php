@@ -38,4 +38,11 @@ return [
     'loading' => 'LOADING...',
     'success' => 'Success',
     'failure' => 'Failure',
+    'value' => 'Value',
+    'option' => 'Option',
+    'settings' => 'Settings',
+    'index' => 'Index',
+    'save' => 'Save',
+    'cancel' => 'Cancel',
+    'detail' => 'Detail',
 ];

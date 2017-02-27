@@ -1,5 +1,6 @@
 import FilterTable from "./common/filter-table"
 import Permission from "./user/permission"
+import SettingTable from "./setting/update"
 
 class App {
     constructor(window) {
@@ -16,6 +17,9 @@ class App {
 
         const permission = new Permission(this);
         permission.init();
+
+        const settingTable = new SettingTable(this);
+        settingTable.init();
     }
 
     setup() {
