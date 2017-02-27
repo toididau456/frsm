@@ -72,9 +72,14 @@ class UserController extends Controller
         return view('web.user.assign_permission', compact('user', 'permissions', 'permissionGroups'));
     }
 
-    public function updatePermission($id)
+    public function updatePermission(Request $request, $id)
     {
-        //
+        $user = $this->userRepository->find($id);
+        if($user->permissions()->sync($request->permission)) {
+            return response()->json([trans('messages.success')]);
+        }
+
+        return response()->json([trans('messages.failure')], 500);
     }
     /**
      * Show the form for creating a new resource.
