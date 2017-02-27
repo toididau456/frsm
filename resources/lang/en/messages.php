@@ -36,4 +36,6 @@ return [
     'permission_candidate' => 'Candidate Permission',
     'permission_other' => 'Other Permission',
     'loading' => 'LOADING...',
+    'success' => 'Success',
+    'failure' => 'Failure',
 ];

@@ -20,5 +20,19 @@ export default class {
                 });
             })
         });
+
+        this.updatePermission();
+    }
+
+    updatePermission() {
+        const $ = this.jQuery;
+        $(() => {
+            $(".modal-content-permission").on("click", ".btn-permission", (event) => {
+                var form = $(event.target).closest('form');
+
+                event.preventDefault();
+                $.post(form.attr('action'), form.serialize());
+            });
+        });
     }
 }

@@ -22,7 +22,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix' => 'users'], function() {
         Route::post('filter', 'Web\UserController@filter');
         Route::get('assign-permission/{id}', 'Web\UserController@assignPermission');
-        Route::post('update-permission', 'Web\UserController@updatePermission');
+        Route::post('update-permission/{id}', 'Web\UserController@updatePermission');
         Route::resource('/', 'Web\UserController');
     });
 });

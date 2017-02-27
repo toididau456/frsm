@@ -2,9 +2,9 @@
     <button type="button" class="close" data-dismiss="modal">&times;</button>
     <div class="modal-title"><h3>{{ $user->name }}</h3></div>
 </div>
-<div class="modal-body">
+<div class="modal-body modal-permission">
     {{ Form::open([
-        'action' => 'Web\UserController@updatePermission',
+        'url' => action('Web\UserController@updatePermission', ['id' => $user->id]),
         'method' => 'POST',
     ]) }}
         <div>
@@ -17,7 +17,8 @@
                                 <div class="col-md-4">
                                     <div class="checkbox">
                                         <label>
-                                            {{ Form::checkbox('permission', $permission->id, $user->permissions->where('id', $permission->id)->count()) }}
+                                            {{ Form::checkbox('permission[]', $permission->id,
+                                                $user->permissions->where('id', $permission->id)->count()) }}
                                             {{ $permission->name }}
                                         </label>
                                     </div>
@@ -28,8 +29,8 @@
                 </fieldset>
             @endforeach
         </div>
+        <div class="modal-footer modal-submit-permission">
+            {{ Form::submit("Save", ["class" => "btn btn-success btn-permission", "data-dismiss" => "modal"]) }}
+        </div>
     {{ Form::close() }}
-</div>
-<div class="modal-footer">
-    <button type="button" class="btn btn-success" data-dismiss="modal">Save</button>
 </div>

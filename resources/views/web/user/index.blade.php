@@ -51,7 +51,7 @@
     </div>
     <div id="permission" class="modal fade permission-popup" role="dialog">
         <div class="modal-dialog">
-            <div class="modal-content" data-loading="{{ trans('messages.loading') }}"></div>
+            <div class="modal-content modal-content-permission" data-loading="{{ trans('messages.loading') }}"></div>
         </div>
     </div>
 @endsection
