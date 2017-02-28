@@ -2,7 +2,7 @@
 @section('content')
     <div class="container-fluid">
         <div class="row" id="interview-content">
-                <div class="col-md-7 content-left">
+                <div class="col-md-6 content-left">
                     <div id="candidate">
                         <div id="info-cadidate">
                             <span>{{ trans('interview.gerneralInfomation') }}</span>
@@ -91,7 +91,7 @@
                             </div> 
                     </div>
                 </div>
-                <div class="col-md-5 content-right">
+                <div class="col-md-3 content-right">
                     <div id="msg-submit-note">
                     </div>
                     <div class="interview-note">
