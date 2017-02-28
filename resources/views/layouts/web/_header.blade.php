@@ -14,7 +14,6 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-            <li><a href="#" id="header-toggle-nav"><i class="fa fa-list" aria-hidden="true"></i></a></li>
                 <li class="dropdown active">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         {{ trans_choice('messages.candidate', 2) }}
