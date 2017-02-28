@@ -12,12 +12,8 @@ export default class {
             var settingTable = $('#settings-table');
             if (settingTable.length) {
                 this.initDataTable(settingTable);
+                this.detailModal(settingTable);
                 this.update(settingTable);
-            }
-
-            var detail = $('#detail');
-            if (detail.length) {
-                this.detailModal(settingTable, detail);
             }
         });
     }
@@ -26,17 +22,19 @@ export default class {
         settingTable.DataTable({});
     }
 
-    detailModal(settingTable, detail) {
+    detailModal(settingTable) {
         const $ = this.jQuery;
         autosize($('textarea'));
 
-        settingTable.on('click', '.btn-detail', function () {
-            detail.css('display','block');
+        settingTable.on('click', '.btn-detail', function (e) {
+            let detail = $(e.target);
+            $('#detail_' + detail.data('id')).css('display','block');
             settingTable.find('.btn-cancel').click();
         });
 
-        settingTable.on('click', '.close', function () {
-            detail.css('display', 'none');
+        settingTable.on('click', '.close', function (e) {
+            let close = $(e.target);
+            $('#detail_' + close.data('id')).css('display', 'none');
             settingTable.find('.btn-cancel').click();
         });
     }
@@ -50,7 +48,7 @@ export default class {
         });
 
         settingTable.find('.btn-save').on('click', (e) => {
-            let save = $(e.target)
+            let save = $(e.target);
             let tr = settingTable.find('.setting_' + save.data('id'));
             if (tr.length) {
                 let val;
