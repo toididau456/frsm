@@ -3,7 +3,7 @@
     @push('css')
           {!! Charts::assets() !!}
     @endpush
-    <div class="col-md-9 col-md-offset-3 statistic">
+    <div class="col-md-9 statistic">
         {!! Form::open([
             'action' => 'Web\StatisticController@index',
             'role' => 'form',
