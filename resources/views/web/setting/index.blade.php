@@ -50,10 +50,10 @@
                                     <button class="btn btn-default btn-cancel btn-xs" data-id="{{ $loop->iteration }}">
                                         @lang('messages.cancel')
                                     </button>
-                                    <div class="modal" id="detail">
+                                    <div class="modal" id="detail_{{ $loop->iteration }}">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <span class="close">&times;</span>
+                                                <span class="close" data-id="{{ $loop->iteration }}">&times;</span>
                                                 <h5>#{{ $loop->iteration }}. {{ $setting->title }}</h5>
                                             </div>
                                             <div class="modal-body">
